@@ -40,7 +40,7 @@ Run the development server:
 yarn dev
 ```
 
-Make a POST request to http://localhost:3001/api/sendEmail with a JSON body:
+Make a POST request to http://localhost:3001/api/send-email with a JSON body:
 
 ```json
 {
