@@ -1,10 +1,22 @@
 import express from 'express'
 import cors from 'cors';
 import sendEmailRoutes from './routes/sendEmail';
+import dotenv from 'dotenv';
 
 const app = express();
 
-app.use(cors());
+dotenv.config();
+
+app.use(cors({
+  origin: [
+    process.env.CORS_ORIGIN_1,
+    process.env.CORS_ORIGIN_2,
+  ].filter((origin): origin is string => typeof origin === 'string'),
+  methods: [
+    'POST',
+    'OPTIONS'
+  ]
+}));
 app.use(express.json());
 
 // Routes
