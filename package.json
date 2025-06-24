@@ -1,7 +1,7 @@
 {
   "name": "send-email",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "license": "MIT",
   "dependencies": {
     "@types/cors": "^2.8.19",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/node": "^24.0.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }
