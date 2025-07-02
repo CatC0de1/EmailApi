@@ -24,6 +24,10 @@ app.get('/', (_, res) => {
   res.send('Email API Server is online');
 });
 
+app.get('/health', (_, res) => {
+  res.sendStatus(200);
+});
+
 app.use('/api', sendEmailRoutes);
 
 export default app;
