@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors';
 import sendEmailRoutes from './routes/sendEmail';
+import healthCheck from './routes/healthCheck';
 import dotenv from 'dotenv';
 
 const app = express();
@@ -24,10 +25,8 @@ app.get('/', (_, res) => {
   res.send('Email API Server is online');
 });
 
-app.get('/health', (_, res) => {
-  res.sendStatus(200);
-});
-
 app.use('/api', sendEmailRoutes);
+
+app.use('/health', healthCheck);
 
 export default app;
