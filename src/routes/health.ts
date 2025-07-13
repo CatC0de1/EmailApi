@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/ping', (_, res) => {
+router.get('/', (_, res) => {
   res.sendStatus(200);
 });
 

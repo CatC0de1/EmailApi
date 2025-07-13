@@ -2,7 +2,7 @@ import type { Request, Response } from 'express';
 import transporter from "../utils/mailer";
 import { emailSchema } from '../validators/emailSchema';
 
-export const sendEmail = async (req: Request, res: Response) => {
+export const sendEmailPrivate = async (req: Request, res: Response) => {
   const parseResult = emailSchema.safeParse(req.body);
   
   if (!parseResult.success) {
@@ -27,4 +27,8 @@ export const sendEmail = async (req: Request, res: Response) => {
     console.error('Email send failed: ', error);
     res.status(500).json({ success: false, error: 'Failed to send email' });
   }
+};
+
+export const sendEmailPublic = async (req: Request, res: Response) => {
+  res.sendStatus(200);
 };
