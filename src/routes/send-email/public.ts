@@ -3,6 +3,6 @@ import { sendEmailPublic } from '../../controllers/emailController';
 
 const router = Router();
 
-router.get('/', sendEmailPublic);
+router.post('/', sendEmailPublic);
 
 export default router;
