@@ -1,0 +1,19 @@
+{{> header }}
+
+<p style="font-size:16px; color:#333;">Hello {{user_name_receiver}},</p>
+
+{{#if public}}
+  <p style="font-size:14px; color:#555; line-height:1.5;">
+    You have received a new message from <strong>{{user_name_sender}}</strong> ({{user_email_sender}}).
+  </p>
+{{else}}
+  <p style="font-size:14px; color:#555; line-height:1.5;">
+    You have portfolio Message from <strong>{{user_name_sender}}</strong> ({{user_email_sender}}).
+  </p>
+{{/if}}
+
+<blockquote style="margin:15px 0; padding:10px; border-left:4px solid #0070f3; background:#f3f6fa; color:#333;">
+  {{message}}
+</blockquote>
+
+{{> footer }}

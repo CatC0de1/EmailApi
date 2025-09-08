@@ -10,8 +10,8 @@ const strictCors = cors({
   ].filter((origin): origin is string => typeof origin === 'string'),
   methods: [
     'POST',
-    'OPTIONS'
-  ]
+    'OPTIONS',
+  ],
 });
 
 export default strictCors;
