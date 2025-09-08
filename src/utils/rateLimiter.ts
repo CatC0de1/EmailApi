@@ -1,6 +1,6 @@
 import rateLimit from 'express-rate-limit';
 
-export const publicEmailLimiter = rateLimit({
+const emailLimiter = rateLimit({
   windowMs: 60 * 1000,  // interval di reset tiap 1 menit
   max: 5,  // max 5 request per IP
   handler: (_req, res) => {
@@ -12,3 +12,5 @@ export const publicEmailLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: true,
 });
+
+export default emailLimiter;
