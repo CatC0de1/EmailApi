@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { sendEmailPublic } from '../../controllers/emailController';
+import { sendEmailPublic } from '../../../controllers/emailController';
 
 const router = Router();
 
