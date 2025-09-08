@@ -10,5 +10,5 @@ export const publicEmailLimiter = rateLimit({
     });
   },
   standardHeaders: true,
-  legacyHeaders: true,  // header lama, bisa dinonaktifkan
+  legacyHeaders: true,
 });
