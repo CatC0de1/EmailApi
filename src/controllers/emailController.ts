@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import transporter from "../utils/mailer";
+import renderTemplate from '../utils/renderTemplate';
 import { emailPrivateSchema, emailPublicSchema } from '../validators/emailSchema';
 
 export const sendEmailPrivate = async (req: Request, res: Response) => {
@@ -14,11 +15,18 @@ export const sendEmailPrivate = async (req: Request, res: Response) => {
   const { user_name_sender, user_email_sender, message } = parseResult.data;
 
   try {
+    const htmlContent = renderTemplate('emailTemplate', {
+      public: false,
+      user_name_sender,
+      user_email_sender,
+      message
+    });
+
     await transporter.sendMail({
-      from: `"${user_name_sender}", Portfolio Message`,
+      from: `"${user_name_sender}" <${user_email_sender}>, Portfolio Message`,
       to: process.env.MAIL_RECEIVER,
       subject: `Portfolio Message from ${user_name_sender}`,
-      text: message,
+      html: htmlContent,
       replyTo: user_email_sender
     });
 
@@ -41,11 +49,20 @@ export const sendEmailPublic = async (req: Request, res: Response) => {
   const { user_name_sender, user_email_sender, message, user_name_receiver, user_email_receiver } = parseResult.data;
 
   try {
+    const htmlContent = renderTemplate('emailTemplate', {
+      public: true,
+      user_name_sender,
+      user_email_sender,
+      message,
+      user_name_receiver,
+      user_email_receiver
+    });
+
     await transporter.sendMail({
-      from: `"${user_name_sender}"`,
+      from: `"${user_name_sender}" <${user_email_sender}>`,
       to: user_email_receiver,
       subject: `Hello ${user_name_receiver}, you have message from ${user_name_sender}`,
-      text: `${message} \n\n\n 'this email was sent via Z's STMP Server'`,
+      html: htmlContent,
       replyTo: user_email_sender
     });
 
