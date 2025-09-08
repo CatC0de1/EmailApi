@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import cors from 'cors';
 import sendEmailRouter from './routes/send-email';
 import healthRouter from './routes/health';

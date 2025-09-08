@@ -6,7 +6,7 @@ const emailLimiter = rateLimit({
   handler: (_req, res) => {
     res.status(429).json({
       success: false,
-      error: 'Too many request, try again later'
+      error: 'Too many request, try again later',
     });
   },
   standardHeaders: true,

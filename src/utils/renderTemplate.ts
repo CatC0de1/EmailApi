@@ -16,6 +16,6 @@ const renderTemplate = (templateName: string, content: object) => {
 
   const template = hbs.compile(source);
   return template(content);
-}
+};
 
 export default renderTemplate;

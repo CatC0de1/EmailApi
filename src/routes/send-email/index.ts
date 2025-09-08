@@ -7,12 +7,12 @@ import emailLimiter from '../../utils/rateLimiter';
 
 const router = Router();
 
-router.use(emailLimiter)
+router.use(emailLimiter);
 
 // ./api/send-email/public
-router.use('/public', cors(), publicRouter)
+router.use('/public', cors(), publicRouter);
 
 // ./api/send-email/private
-router.use('/private', strictCors, privateRouter)
+router.use('/private', strictCors, privateRouter);
 
 export default router;
