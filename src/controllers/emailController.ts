@@ -7,7 +7,10 @@ export const sendEmailPrivate = async (req: Request, res: Response) => {
   const parseResult = emailPrivateSchema.safeParse(req.body);
   
   if (!parseResult.success) {
-    const errorMessages = parseResult.error.errors.map(e => e.message);
+    const errorMessages = parseResult.error.issues.map(issue => ({
+      field: issue.path[0],
+      message: issue.message
+    }));
     res.status(400).json({ success: false, error: errorMessages });
     return;
   }
@@ -41,7 +44,10 @@ export const sendEmailPublic = async (req: Request, res: Response) => {
   const parseResult = emailPublicSchema.safeParse(req.body);
 
   if (!parseResult.success) {
-    const errorMessages = parseResult.error.errors.map(e => e.message);
+    const errorMessages = parseResult.error.issues.map(issue => ({
+      field: issue.path[0],
+      message: issue.message
+    }));
     res.status(400).json({ success: false, error: errorMessages });
     return;
   }
