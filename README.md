@@ -7,7 +7,8 @@ This API accepts `JSON` as input and sends an email to a predefined Gmail accoun
 
 ## Features
 
-- Built with Express and TypeScript
+- Built with [Express](https://expressjs.com/) and [TypeScript](https://www.typescriptlang.org/)
+- Email template built with [Handlebars](https://handlebarsjs.com/)
 - Handles CORS and JSON requests
 - Sends email using Nodemailer
 - Using rate limiter (5 per use within 1 minute)
@@ -88,5 +89,6 @@ Author : Iyan Zuli Armanda
 ---
 
 ## License
+
 
 Ziymail is [MIT licensed](https://github.com/CatC0de1/EmailApi?tab=MIT-1-ov-file)
