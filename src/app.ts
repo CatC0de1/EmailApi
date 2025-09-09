@@ -6,6 +6,7 @@ import healthRouter from './routes/health';
 const app = express();
 
 app.use(express.json());
+app.set('trust proxy', 1);
 
 // Routes
 app.get('/', (_, res) => {
